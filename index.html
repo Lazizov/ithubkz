@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT HUB — IT-Компания и Учебный Центр</title>
+  <meta name="description" content="IT HUB — Решение бизнес-задач с помощью IT-технологий и обучение программированию от практикующих специалистов в Астане.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- LOADER -->
+  <div id="loader" class="loader-container">
+    <div class="loader-content">
+      <!-- Logo -->
+      <img src="assets/logo_main.png" alt="IT HUB" class="loader-logo-img">
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#home" class="logo-link" onclick="showPage('home')">
+        <div class="logo-wrapper">
+          <img src="assets/logo_main.png" alt="IT HUB" class="logo-img">
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu">
+        <a href="#home" class="nav-link active" onclick="showPage('home')" data-key="nav_home">Главная</a>
+        <a href="#services" class="nav-link" onclick="showPage('services')" data-key="nav_services">Услуги</a>
+        <a href="#academy" class="nav-link" onclick="showPage('academy')" data-key="nav_academy">Учебный Центр</a>
+        <a href="#projects" class="nav-link" onclick="showPage('projects')" data-key="nav_projects">Наши Проекты</a>
+        <a href="#team" class="nav-link" onclick="showPage('team')" data-key="nav_team">Наша Команда</a>
+        <a href="#contacts" class="nav-link" onclick="showPage('contacts')" data-key="nav_contacts">Контакты</a>
+      </nav>
+
+      <!-- Language & CTA Header -->
+      <div class="header-right">
+        <div class="lang-selector">
+          <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
+          <button class="lang-btn" onclick="changeLang('kk')">KZ</button>
+          <button class="lang-btn" onclick="changeLang('en')">EN</button>
+        </div>
+        <a href="#contacts" class="btn btn-primary btn-sm btn-header-cta" onclick="showPage('contacts')" data-key="cta_consult">Консультация</a>
+        <button class="hamburger-btn" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="#home" class="mobile-link active" onclick="showPage('home')" data-key="nav_home">Главная</a>
+      <a href="#services" class="mobile-link" onclick="showPage('services')" data-key="nav_services">Услуги</a>
+      <a href="#academy" class="mobile-link" onclick="showPage('academy')" data-key="nav_academy">Учебный Центр</a>
+      <a href="#projects" class="mobile-link" onclick="showPage('projects')" data-key="nav_projects">Наши Проекты</a>
+      <a href="#team" class="mobile-link" onclick="showPage('team')" data-key="nav_team">Наша Команда</a>
+      <a href="#contacts" class="mobile-link" onclick="showPage('contacts')" data-key="nav_contacts">Контакты</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <div class="mobile-lang">
+        <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
+        <button class="lang-btn" onclick="changeLang('kk')">KZ</button>
+        <button class="lang-btn" onclick="changeLang('en')">EN</button>
+      </div>
+      <div class="mobile-socials">
+        <a href="https://t.me/aar10" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/77085739656" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SPA CONTENT -->
+  <main class="main-content">
+
+    <!-- HOME PAGE -->
+    <section id="page-home" class="page-section active">
+      <!-- HERO -->
+      <div class="hero-section">
+        <div class="hero-bg-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="section-container">
+          <div class="hero-grid">
+            <div class="hero-text-col">
+              <div class="hero-tagline" data-key="hero_tagline">Инновационные IT-Решения & Обучение</div>
+              <h1 class="hero-title" data-key="hero_title">Создаем будущее <br>IT-индустрии Казахстана</h1>
+              <p class="hero-desc" data-key="hero_desc">IT HUB — это синергия передовых веб-технологий и современного образования. Разрабатываем программное обеспечение для бизнеса и готовим профессиональные IT-кадры.</p>
+              <div class="hero-actions">
+                <a href="#academy" class="btn btn-primary btn-lg" onclick="showPage('academy')" data-key="hero_cta_academy">Учебный Центр</a>
+                <a href="#services" class="btn btn-outline btn-lg" onclick="showPage('services')" data-key="hero_cta_services">Наши Услуги</a>
+              </div>
+            </div>
+            
+            <div class="hero-visual-col">
+              <div class="tilt-box" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                <div class="hero-3d-card">
+                  <div class="card-glow"></div>
+                  <div class="card-inner">
+                    <div class="card-header-accent">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="code-window">
+                      <pre><code><span class="code-keyword">const</span> <span class="code-variable">itHub</span> = {
+  mission: <span class="code-string">"Digitalize Business & Teach"</span>,
+  team: [<span class="code-string">"Asilbek"</span>, <span class="code-string">"Bakhtiyor"</span>, <span class="code-string">"Nodir"</span>],
+  location: <span class="code-string">"Astana, Kazakhstan"</span>,
+  techStack: [<span class="code-string">"Vue"</span>, <span class="code-string">"React"</span>, <span class="code-string">"Node"</span>, <span class="code-string">"Python"</span>],
+  status: <span class="code-string">"Active & Innovating"</span>
+};
+
+<span class="code-comment">// Building premium web solutions...</span>
+<span class="code-variable">itHub</span>.buildNextGenProject();</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STATISTICS BAR -->
+          <div class="stats-bar">
+            <div class="stat-item">
+              <div class="stat-num" id="count-projects">50+</div>
+              <div class="stat-label" data-key="stat_projects">Проектов Сдано</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="count-students">1000+</div>
+              <div class="stat-label" data-key="stat_students">Выпускников</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="count-courses">10+</div>
+              <div class="stat-label" data-key="stat_courses">IT-Направлений</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" id="count-satisfaction">98%</div>
+              <div class="stat-label" data-key="stat_satisfaction">Довольных Клиентов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <div class="about-brief-section">
+        <div class="section-container">
+          <div class="about-grid">
+            <div class="about-image-wrap">
+              <div class="about-card-3d" data-tilt data-tilt-max="8">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80" alt="Команда IT HUB" class="about-img">
+                <div class="about-experience-badge">
+                  <span class="badge-number">5+</span>
+                  <span class="badge-text" data-key="about_badge_exp">Лет опыта в IT</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-text-wrap">
+              <div class="section-tag" data-key="about_tag">О Нас</div>
+              <h2 class="section-title" data-key="about_title">Мы решаем ваши бизнес-задачи с помощью технологий</h2>
+              <p class="about-text-desc" data-key="about_desc_1">IT HUB — это профессиональная команда IT-разработчиков и преподавателей. Мы объединяем практический опыт создания крупных веб-проектов и систем автоматизации со стремлением делиться знаниями.</p>
+              <p class="about-text-desc" data-key="about_desc_2">Наш учебный центр готовит квалифицированных специалистов, которые сразу после окончания обучения готовы вливаться в реальные проекты. А наше IT-подразделение создает цифровые решения мирового уровня для компаний в Казахстане.</p>
+              <div class="about-features">
+                <div class="feat-item">
+                  <div class="feat-icon"><i class="fas fa-check-circle"></i></div>
+                  <div class="feat-text">
+                    <h4 data-key="feat_1_title">Индивидуальный подход</h4>
+                    <p data-key="feat_1_desc">Как в обучении, так и в разработке программных решений.</p>
+                  </div>
+                </div>
+                <div class="feat-item">
+                  <div class="feat-icon"><i class="fas fa-check-circle"></i></div>
+                  <div class="feat-text">
+                    <h4 data-key="feat_2_title">Практикующие эксперты</h4>
+                    <p data-key="feat_2_desc">Обучаем только тому, что используем сами в коммерческой разработке.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+
+      <!-- FLAT PARTNERS LOGO CAROUSEL (Smooth Continuous Sliding, No Rotation) -->
+      <div class="partners-carousel-section" style="margin-top: 0; padding-top: 3rem; padding-bottom: 4rem; background-color: var(--bg-soft);">
+        <div class="section-container" style="padding-top: 0; padding-bottom: 0;">
+          <div class="section-header text-center compact" style="margin-bottom: 2rem;">
+            <h3 class="partners-carousel-title" data-key="partners_title">Наши Партнеры и Клиенты</h3>
+          </div>
+
+          <div class="logo-marquee" id="partnersMarquee">
+            <div class="logo-marquee-track" id="partnersTrack">
+              <!-- AD Group -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_adgroup.png" alt="AD Group" class="partner-logo-img">
+                </div>
+              </div>
+              <!-- GES -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_ges.png" alt="GES Sayram" class="partner-logo-img">
+                </div>
+              </div>
+              <!-- Жанубий Козогистон -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_zhanubiy.png" alt="Жанубий Қозоғистон" class="partner-logo-img">
+                </div>
+              </div>
+              <!-- Life Travel -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_lifetravel.png" alt="Life Travel" class="partner-logo-img">
+                </div>
+              </div>
+              <!-- Сайрам Нан -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_sairamnan.png" alt="Сайрам Нан" class="partner-logo-img">
+                </div>
+              </div>
+              <!-- Aziz Talipov -->
+              <div class="logo-card">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_aziztalipov.png" alt="Aziz Talipov" class="partner-logo-img">
+                </div>
+              </div>
+
+              <!-- Duplicate set (hidden from assistive tech) so the track loops seamlessly -->
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_adgroup.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_ges.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_zhanubiy.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_lifetravel.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_sairamnan.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+              <div class="logo-card" aria-hidden="true">
+                <div class="partner-logo-box">
+                  <img src="assets/logo_aziztalipov.png" alt="" class="partner-logo-img">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="logo-marquee-nav">
+            <button class="logo-marquee-btn prev" onclick="shiftMarquee('prev')"><i class="fas fa-chevron-left"></i></button>
+            <button class="logo-marquee-btn next" onclick="shiftMarquee('next')"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PAGE -->
+    <section id="page-services" class="page-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <div class="section-tag" data-key="services_tag">Наши Услуги</div>
+          <h2 class="section-title" data-key="services_title">Решения для Вашего Бизнеса</h2>
+          <p class="section-subtitle" data-key="services_subtitle">Мы помогаем автоматизировать процессы, привлекать клиентов и масштабировать бизнес в цифровой среде.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <div class="service-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="service-icon-wrapper">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="service-card-title" data-key="serv_1_title">Создание сайтов</h3>
+            <p class="service-card-desc" data-key="serv_1_desc">Разработка современных сайтов под ключ: от лендингов до крупных корпоративных порталов и интернет-магазинов.</p>
+            <div class="service-card-features">
+              <span><i class="fas fa-arrow-right"></i> UX/UI Дизайн</span>
+              <span><i class="fas fa-arrow-right"></i> Адаптивность</span>
+              <span><i class="fas fa-arrow-right"></i> SEO-оптимизация</span>
+            </div>
+            <a href="#contacts" class="service-learn-more" onclick="showPage('contacts')" data-key="serv_cta">Заказать <i class="fas fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="service-icon-wrapper">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="service-card-title" data-key="serv_2_title">Мобильные приложения</h3>
+            <p class="service-card-desc" data-key="serv_2_desc">Разработка кроссплатформенных и нативных мобильных приложений для iOS и Android любой сложности.</p>
+            <div class="service-card-features">
+              <span><i class="fas fa-arrow-right"></i> Flutter / React Native</span>
+              <span><i class="fas fa-arrow-right"></i> Интеграция с API</span>
+              <span><i class="fas fa-arrow-right"></i> Публикация в сторах</span>
+            </div>
+            <a href="#contacts" class="service-learn-more" onclick="showPage('contacts')" data-key="serv_cta">Заказать <i class="fas fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="service-icon-wrapper">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="service-card-title" data-key="serv_3_title">Автоматизация бизнеса</h3>
+            <p class="service-card-desc" data-key="serv_3_desc">Внедрение CRM, ERP систем, настройка интеграций и разработка индивидуального ПО под ваши бизнес-процессы.</p>
+            <div class="service-card-features">
+              <span><i class="fas fa-arrow-right"></i> Интеграция 1С</span>
+              <span><i class="fas fa-arrow-right"></i> CRM-системы</span>
+              <span><i class="fas fa-arrow-right"></i> Телеграм-боты</span>
+            </div>
+            <a href="#contacts" class="service-learn-more" onclick="showPage('contacts')" data-key="serv_cta">Заказать <i class="fas fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="service-icon-wrapper">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="service-card-title" data-key="serv_4_title">Поддержка сайтов</h3>
+            <p class="service-card-desc" data-key="serv_4_desc">Техническое сопровождение, обновление контента, обеспечение безопасности и мониторинг работоспособности ваших систем.</p>
+            <div class="service-card-features">
+              <span><i class="fas fa-arrow-right"></i> Регулярные бэкапы</span>
+              <span><i class="fas fa-arrow-right"></i> Устранение ошибок</span>
+              <span><i class="fas fa-arrow-right"></i> Доработки функционала</span>
+            </div>
+            <a href="#contacts" class="service-learn-more" onclick="showPage('contacts')" data-key="serv_cta">Заказать <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMY PAGE (Учебный Центр) -->
+    <section id="page-academy" class="page-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <div class="section-tag" data-key="academy_tag">Учебный Центр</div>
+          <h2 class="section-title" data-key="academy_title">Освойте востребованную IT-Профессию</h2>
+          <p class="section-subtitle" data-key="academy_subtitle">Курсы от практикующей команды профессионалов с индивидуальным подходом, гибким графиком и помощью в трудоустройстве.</p>
+        </div>
+
+        <!-- Course Filters -->
+        <div class="course-filters">
+          <button class="filter-btn active" onclick="filterCourses('all')" data-key="course_filter_all">Все курсы</button>
+          <button class="filter-btn" onclick="filterCourses('prog')" data-key="course_filter_prog">Программирование</button>
+          <button class="filter-btn" onclick="filterCourses('design')" data-key="course_filter_design">Дизайн</button>
+          <button class="filter-btn" onclick="filterCourses('kids')" data-key="course_filter_kids">Детям</button>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid" id="coursesGrid">
+          <!-- Course Card 1: Frontend -->
+          <div class="course-card" data-category="prog">
+            <div class="course-image-wrap">
+              <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=500&auto=format&fit=crop&q=80" alt="Frontend Разработка" class="course-img">
+              <span class="course-badge" data-key="badge_hit">Хит</span>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span class="course-duration"><i class="far fa-clock"></i> 4 месяца</span>
+                <span class="course-level" data-key="level_beginner">С нуля</span>
+              </div>
+              <h3 class="course-title">Frontend Разработка (HTML, CSS, JS, Vue/React)</h3>
+              <p class="course-desc" data-key="course_frontend_desc">Научитесь создавать интерактивные пользовательские интерфейсы для сайтов и веб-приложений. Сделаете 5 проектов в портфолио.</p>
+              <div class="course-price">
+                <span class="price-val">45 000 ₸ / мес.</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="openCourseModal('frontend')" data-key="course_enroll">Записаться</button>
+            </div>
+          </div>
+
+          <!-- Course Card 2: Python Backend -->
+          <div class="course-card" data-category="prog">
+            <div class="course-image-wrap">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&auto=format&fit=crop&q=80" alt="Backend Разработка" class="course-img">
+              <span class="course-badge bg-gradient-blue" data-key="badge_popular">Популярно</span>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span class="course-duration"><i class="far fa-clock"></i> 5 месяцев</span>
+                <span class="course-level" data-key="level_beginner">С нуля</span>
+              </div>
+              <h3 class="course-title">Backend Разработка на Python (Django, FastAPI)</h3>
+              <p class="course-desc" data-key="course_backend_desc">Освойте логику работы серверов, баз данных и разработку API. Изучите основы проектирования сложных архитектур систем.</p>
+              <div class="course-price">
+                <span class="price-val">50 000 ₸ / мес.</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="openCourseModal('backend')" data-key="course_enroll">Записаться</button>
+            </div>
+          </div>
+
+          <!-- Course Card 3: UI/UX Design -->
+          <div class="course-card" data-category="design">
+            <div class="course-image-wrap">
+              <img src="https://images.unsplash.com/photo-1561070791-26c113006238?w=500&auto=format&fit=crop&q=80" alt="UI/UX Дизайн" class="course-img">
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span class="course-duration"><i class="far fa-clock"></i> 3 месяца</span>
+                <span class="course-level" data-key="level_beginner">С нуля</span>
+              </div>
+              <h3 class="course-title">UI/UX Дизайн в Figma (Веб & Мобильные)</h3>
+              <p class="course-desc" data-key="course_design_desc">Проектируйте удобные интерфейсы сайтов и мобильных приложений. Научитесь проводить исследования, строить CJM и прототипы.</p>
+              <div class="course-price">
+                <span class="price-val">40 000 ₸ / мес.</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="openCourseModal('design')" data-key="course_enroll">Записаться</button>
+            </div>
+          </div>
+
+          <!-- Course Card 4: IT Kids -->
+          <div class="course-card" data-category="kids">
+            <div class="course-image-wrap">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&auto=format&fit=crop&q=80" alt="IT для детей" class="course-img">
+              <span class="course-badge bg-gradient-orange" data-key="badge_kids">Дети</span>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <span class="course-duration"><i class="far fa-clock"></i> Круглый год</span>
+                <span class="course-level">10-15 лет</span>
+              </div>
+              <h3 class="course-title">Основы IT & Scratch для школьников</h3>
+              <p class="course-desc" data-key="course_kids_desc">Программирование в игровой форме: создание первых игр на Scratch, знакомство с HTML/CSS и развитием логического мышления.</p>
+              <div class="course-price">
+                <span class="price-val">30 000 ₸ / мес.</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="openCourseModal('kids')" data-key="course_enroll">Записаться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS PAGE (Наши Проекты) -->
+    <section id="page-projects" class="page-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <div class="section-tag" data-key="projects_tag">Наши Проекты</div>
+          <h2 class="section-title" data-key="projects_title">Портфолио Выполненных Работ</h2>
+          <p class="section-subtitle" data-key="projects_subtitle">Реализованные проекты, разработанные нашей командой для бизнеса в Казахстане и СНГ.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project Card 1: Sairam Nan -->
+          <div class="project-card" data-tilt data-tilt-max="10">
+            <div class="project-image-wrap">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80" alt="Сайрам Нан" class="project-img">
+              <div class="project-overlay">
+                <div class="project-overlay-content">
+                  <h4 data-key="proj_1_category">Корпоративный сайт</h4>
+                  <p data-key="proj_1_tech">Laravel • Vue.js • Tailwind CSS</p>
+                  <a href="#" class="btn btn-primary btn-sm" onclick="openProjectDetails('sairam')" data-key="proj_view">Подробнее</a>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Сайрам Нан</h3>
+              <p class="project-desc" data-key="proj_1_desc">Информационный сайт-визитка крупного хлебопекарного комбината с каталогом продукции и системой заявок.</p>
+            </div>
+          </div>
+
+          <!-- Project Card 2: AD Group -->
+          <div class="project-card" data-tilt data-tilt-max="10">
+            <div class="project-image-wrap">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" alt="AD Group" class="project-img">
+              <div class="project-overlay">
+                <div class="project-overlay-content">
+                  <h4 data-key="proj_2_category">Автоматизация процессов</h4>
+                  <p data-key="proj_2_tech">React • Node.js • PostgreSQL</p>
+                  <a href="#" class="btn btn-primary btn-sm" onclick="openProjectDetails('adgroup')" data-key="proj_view">Подробнее</a>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AD Group CRM</h3>
+              <p class="project-desc" data-key="proj_2_desc">Внутренняя CRM-система для учета заявок, автоматизации продаж и отслеживания логистики поставок.</p>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Global Education Sayram -->
+          <div class="project-card" data-tilt data-tilt-max="10">
+            <div class="project-image-wrap">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80" alt="GES" class="project-img">
+              <div class="project-overlay">
+                <div class="project-overlay-content">
+                  <h4 data-key="proj_3_category">Образовательная платформа</h4>
+                  <p data-key="proj_3_tech">Vue.js • Firebase • Node.js</p>
+                  <a href="#" class="btn btn-primary btn-sm" onclick="openProjectDetails('ges')" data-key="proj_view">Подробнее</a>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">GES Sayram Portal</h3>
+              <p class="project-desc" data-key="proj_3_desc">Сайт образовательного центра с интерактивным личным кабинетом студента, вебинарами и тестированием.</p>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM PAGE (Наша Команда) -->
+    <section id="page-team" class="page-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <div class="section-tag" data-key="team_tag">Команда</div>
+          <h2 class="section-title" data-key="team_title">Профессионалы своего дела</h2>
+          <p class="section-subtitle" data-key="team_subtitle">Команда разработчиков, создающих качественные программные решения для вашего бизнеса.</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Team Member 1: Asilbek -->
+          <div class="team-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="member-image-wrap">
+              <img src="assets/asilbek.png" alt="Асилбек Корганбаев" class="member-img">
+              <div class="member-overlay">
+                <div class="member-socials">
+                  <a href="https://t.me/assillbek" target="_blank"><i class="fab fa-telegram"></i></a>
+                  <a href="https://www.instagram.com/asilbek_korganbaev/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://wa.me/77085739656" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Асилбек Корганбаев</h3>
+              <div class="member-role">Fullstack разработчик</div>
+              <p class="member-desc-full">Корганбаев Асилбек Рустамбекович</p>
+            </div>
+          </div>
+
+          <!-- Team Member 2: Bakhtiyor -->
+          <div class="team-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="member-image-wrap">
+              <img src="assets/bakhtiyor.png" alt="Бахтиёр Халметов" class="member-img">
+              <div class="member-overlay">
+                <div class="member-socials">
+                  <a href="https://t.me/bahtiyor_halmetov" target="_blank"><i class="fab fa-telegram"></i></a>
+                  <a href="https://www.instagram.com/bahtiyor_halmetov/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://wa.me/77752053850" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Бахтиёр Халметов</h3>
+              <div class="member-role">Backend разработчик</div>
+              <p class="member-desc-full">Халметов Бахтиёр Камалжанович</p>
+            </div>
+          </div>
+
+          <!-- Team Member 3: Nodir -->
+          <div class="team-card" data-tilt data-tilt-max="12" data-tilt-scale="1.02">
+            <div class="member-image-wrap">
+              <img src="assets/nodir.png" alt="Нодир Мусаматов" class="member-img">
+              <div class="member-overlay">
+                <div class="member-socials">
+                  <a href="https://t.me/aar10" target="_blank"><i class="fab fa-telegram"></i></a>
+                  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://wa.me/77085739656" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Нодир Мусаматов</h3>
+              <div class="member-role">Frontend разработчик</div>
+              <p class="member-desc-full">Мусаматов Нодир Бахтиярович</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS PAGE (Контакты) -->
+    <section id="page-contacts" class="page-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <div class="section-tag" data-key="contacts_tag">Контакты</div>
+          <h2 class="section-title" data-key="contacts_title">Свяжитесь с Нами</h2>
+          <p class="section-subtitle" data-key="contacts_subtitle">Оставьте заявку, позвоните нам или приезжайте в гости. Наш офис всегда открыт для новых идей и сотрудничества.</p>
+        </div>
+
+        <div class="contacts-grid">
+          <!-- Contact Details -->
+          <div class="contact-info-col">
+            <div class="contact-details-box">
+              <div class="contact-item">
+                <div class="contact-icon-box"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-text-box">
+                  <h4 data-key="contact_phone_title">Телефон</h4>
+                  <a href="tel:+77085739656" class="contact-link">+7 (708) 573-9656</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+                <div class="contact-text-box">
+                  <h4 data-key="contact_email_title">Электронная почта</h4>
+                  <a href="mailto:info@help-it.kz" class="contact-link">info@help-it.kz</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-text-box">
+                  <h4 data-key="contact_address_title">Наш офис</h4>
+                  <p class="contact-p-desc" data-key="contact_address_desc">Казахстан, г. Астана, ул. Туркестан, 10</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Networks Box -->
+            <div class="socials-box">
+              <h3 data-key="socials_title">Наши соцсети</h3>
+              <div class="socials-links">
+                <a href="https://t.me/aar10" target="_blank" class="social-link tg"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://wa.me/77085739656" target="_blank" class="social-link wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://instagram.com" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i> Instagram</a>
+              </div>
+            </div>
+
+            <!-- Interactive Map Mockup -->
+            <div class="map-mockup">
+              <div class="map-overlay">
+                <div class="map-card" data-tilt data-tilt-max="5">
+                  <i class="fas fa-location-dot map-marker"></i>
+                  <h4>IT HUB Astana</h4>
+                  <p data-key="contact_address_desc">ул. Туркестан, 10</p>
+                  <a href="https://2gis.kz/astana/search/%D1%83%D0%BB.%20%D0%A2%D1%83%D1%80%D0%BA%D0%B5%D1%81%D1%82%D0%B0%D0%BD%2C%2010" target="_blank" class="btn btn-primary btn-xs" data-key="map_open">Открыть 2ГИС</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-col">
+            <div class="form-box">
+              <h3 class="form-box-title" data-key="form_title">Оставить заявку</h3>
+              <p class="form-box-subtitle" data-key="form_subtitle">Оставьте ваши данные, и наш менеджер свяжется с вами в течение 15 минут для подробной консультации.</p>
+              
+              <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                  <label class="form-label" for="userName" data-key="form_label_name">Имя</label>
+                  <input type="text" class="form-control" id="userName" placeholder="Иван" required>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label" for="userPhone" data-key="form_label_phone">Телефон</label>
+                  <input type="tel" class="form-control" id="userPhone" placeholder="+7 (708) 573-9656" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="userMessage" data-key="form_label_msg">Ваш вопрос или проект</label>
+                  <textarea class="form-control" id="userMessage" rows="4" placeholder="Опишите ваши пожелания..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" data-key="form_submit">Отправить заявку</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="logo-wrapper">
+            <img src="assets/logo_main.png" alt="IT HUB" class="logo-img footer-logo-img">
+          </div>
+          <p class="footer-brand-desc" data-key="footer_brand_desc">Разработка современных технологических решений для бизнеса и подготовка высококлассных специалистов в сфере IT.</p>
+          <div class="footer-socials">
+            <a href="https://t.me/aar10" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://wa.me/77085739656" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col links-col">
+          <h4 class="footer-col-title" data-key="footer_nav_title">Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="#home" onclick="showPage('home')" data-key="nav_home">Главная</a></li>
+            <li><a href="#services" onclick="showPage('services')" data-key="nav_services">Услуги</a></li>
+            <li><a href="#academy" onclick="showPage('academy')" data-key="nav_academy">Учебный Центр</a></li>
+            <li><a href="#projects" onclick="showPage('projects')" data-key="nav_projects">Наши Проекты</a></li>
+            <li><a href="#team" onclick="showPage('team')" data-key="nav_team">Наша Команда</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col contacts-col">
+          <h4 class="footer-col-title" data-key="footer_contacts_title">Контакты</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:+77085739656">+7 (708) 573-9656</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@help-it.kz">info@help-it.kz</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> <span data-key="contact_address_desc">Казахстан, г. Астана, ул. Туркестан, 10</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-key="footer_copyright">&copy; 2026 IT HUB. Все права защищены. | Разработано командой Alavkhanov</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC POPUP MODAL (For Courses/Projects Enrollment) -->
+  <div class="modal-overlay-dynamic" id="dynamicModal">
+    <div class="modal-dynamic-box" data-tilt data-tilt-max="3">
+      <button class="modal-close-btn" onclick="closeDynamicModal()">&times;</button>
+      <div class="modal-dynamic-content" id="modalDynamicContent">
+        <!-- Loaded Dynamically in JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS NOTIFICATION TOAST -->
+  <div class="success-toast" id="successToast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle toast-icon"></i>
+      <div class="toast-text-wrap">
+        <h4 data-key="toast_success_title">Успешно!</h4>
+        <p data-key="toast_success_desc">Ваша заявка принята. Менеджер свяжется с вами.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JS Libraries -->
+  <!-- vanilla-tilt.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  
+  <!-- Main App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
