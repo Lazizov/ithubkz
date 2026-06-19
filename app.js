@@ -93,7 +93,7 @@ const translations = {
     footer_brand_desc: "Разработка современных технологических решений для бизнеса и подготовка высококлассных специалистов в сфере IT.",
     footer_nav_title: "Навигация",
     footer_contacts_title: "Контакты",
-    footer_copyright: "&copy; 2026 IT HUB. Все права защищены. | Разработано командой Alavkhanov",
+    footer_copyright: "&copy; 2026 IT HUB. Все права защищены. | Разработано Alavkhanov",
     toast_success_title: "Успешно!",
     toast_success_desc: "Ваша заявка принята. Менеджер свяжется с вами."
   },
@@ -186,7 +186,7 @@ const translations = {
     footer_brand_desc: "Бизнеске арналған заманауи технологиялық шешімдерді әзірлеу және IT саласындағы жоғары білікті мамандарды даярлау.",
     footer_nav_title: "Навигация",
     footer_contacts_title: "Байланыс",
-    footer_copyright: "&copy; 2026 IT HUB. Барлық құқықтар қорғалған. | Alavkhanov командасы әзірледі",
+    footer_copyright: "&copy; 2026 IT HUB. Барлық құқықтар қорғалған. | Alavkhanov әзірледі",
     toast_success_title: "Сәтті!",
     toast_success_desc: "Өтінішіңіз қабылданды. Менеджер сізбен байланысады."
   },
@@ -351,6 +351,7 @@ const courseDetails = {
 
 // State Variables
 let currentLanguage = 'ru';
+let currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 let marqueePosition = 0;
 let marqueeSetWidth = 0;
 let marqueeCardStep = 0;
@@ -390,6 +391,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Counter Animations
   initCounterAnimations();
+
+  // Sync theme toggle icon/label with current theme
+  applyThemeUI();
 });
 
 // Custom Cursor Trail Logic
@@ -533,6 +537,41 @@ function changeLang(langCode) {
       }
     }
   });
+
+  // Keep theme toggle label (mobile) in sync with the new language
+  applyThemeUI();
+}
+
+// Dark / Light Theme Toggle
+function toggleTheme() {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  try {
+    localStorage.setItem('ithub-theme', currentTheme);
+  } catch (e) {
+    /* localStorage unavailable - theme just won't persist across visits */
+  }
+  applyThemeUI();
+}
+
+function applyThemeUI() {
+  const isDark = currentTheme === 'dark';
+  const iconClass = isDark ? 'fas fa-sun' : 'fas fa-moon';
+
+  const icon = document.getElementById('themeToggleIcon');
+  const iconMobile = document.getElementById('themeToggleIconMobile');
+  if (icon) icon.className = iconClass;
+  if (iconMobile) iconMobile.className = iconClass;
+
+  const labelMobile = document.getElementById('themeToggleLabelMobile');
+  if (labelMobile) {
+    const labels = {
+      ru: isDark ? 'Светлая тема' : 'Тёмная тема',
+      kk: isDark ? 'Жарық тема' : 'Қараңғы тема',
+      en: isDark ? 'Light theme' : 'Dark theme'
+    };
+    labelMobile.textContent = labels[currentLanguage] || labels.ru;
+  }
 }
 
 // Course Filter

@@ -35,6 +35,29 @@
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Dark Theme Overrides */
+html[data-theme="dark"] {
+  --bg-white: #131c2e;
+  --bg-soft: #0a0f1c;
+  --bg-card: #131c2e;
+  --text-main: #f1f5f9;
+  --text-muted: #9aa7bd;
+  --text-light: #64748b;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(0, 217, 246, 0.4);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.55);
+  --shadow-accent: 0 20px 50px rgba(0, 217, 246, 0.25);
+}
+
+/* Smooth crossfade between themes */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
 /* Reset & Global Base */
 * {
   margin: 0;
@@ -291,6 +314,14 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+html[data-theme="dark"] .header {
+  background-color: rgba(10, 15, 28, 0.85);
+}
+
+html[data-theme="dark"] .header.scrolled {
+  background-color: rgba(10, 15, 28, 0.95);
+}
+
 .header-container {
   max-width: 1240px;
   height: 100%;
@@ -411,6 +442,50 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-soft);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--primary-cyan);
+  transform: translateY(-2px) rotate(15deg);
+  box-shadow: var(--shadow-sm);
+}
+
+.mobile-theme-toggle {
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-theme-toggle .theme-toggle-btn {
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--bg-soft);
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-title);
+}
+
+.mobile-theme-toggle .theme-toggle-btn i {
+  font-size: 1rem;
+}
+
 /* Hamburger button for mobile */
 .hamburger-btn {
   display: none;
@@ -524,6 +599,26 @@ body {
   }
   .hamburger-btn {
     display: flex;
+  }
+  /* On mobile the theme toggle lives inside the mobile menu — hide it from the header bar */
+  #themeToggleBtn {
+    display: none;
+  }
+  .header-right {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+  .header-right {
+    gap: 0.5rem;
+  }
+  .lang-btn {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -661,6 +756,10 @@ body {
   position: relative;
   transform: translateZ(50px);
   transition: border-color var(--transition-normal);
+}
+
+html[data-theme="dark"] .hero-3d-card {
+  background-color: rgba(19, 28, 46, 0.8);
 }
 
 .hero-3d-card:hover {
@@ -1313,36 +1412,26 @@ body {
   object-fit: contain;
 }
 
-/* Nav controls under the marquee */
-.logo-marquee-nav {
+
+/* IT HUB logo footer below marquee (replaces old arrow nav) */
+.marquee-logo-footer {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  z-index: 2;
-}
-
-.logo-marquee-btn {
-  background-color: var(--bg-white);
-  border: 1px solid var(--border-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-fast);
+  margin-top: 2rem;
+  opacity: 0.55;
+  transition: opacity var(--transition-fast);
 }
 
-.logo-marquee-btn:hover {
-  background-color: var(--text-main);
-  color: var(--bg-white);
-  border-color: var(--text-main);
-  transform: scale(1.05);
+.marquee-logo-footer:hover {
+  opacity: 0.85;
+}
+
+.marquee-footer-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 217, 246, 0.15));
 }
 
 @media (max-width: 768px) {
@@ -1605,6 +1694,10 @@ body {
   position: relative;
 }
 
+html[data-theme="dark"] .map-mockup {
+  background-image: linear-gradient(rgba(10,15,28,0.75), rgba(10,15,28,0.75)), url('https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/71.43,51.13,12,0/500x250?access_token=mock');
+}
+
 .map-overlay {
   position: absolute;
   inset: 0;
@@ -1612,6 +1705,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+html[data-theme="dark"] .map-overlay {
+  background-color: rgba(10, 15, 28, 0.45);
 }
 
 .map-card {

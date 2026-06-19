@@ -6,6 +6,11 @@
   <title>IT HUB — IT-Компания и Учебный Центр</title>
   <meta name="description" content="IT HUB — Решение бизнес-задач с помощью IT-технологий и обучение программированию от практикующих специалистов в Астане.">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +21,20 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Apply saved theme before first paint to avoid a flash of the wrong theme -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ithub-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -53,6 +72,9 @@
 
       <!-- Language & CTA Header -->
       <div class="header-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle dark/light theme">
+          <i class="fas fa-moon" id="themeToggleIcon"></i>
+        </button>
         <div class="lang-selector">
           <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
           <button class="lang-btn" onclick="changeLang('kk')">KZ</button>
@@ -79,15 +101,21 @@
       <a href="#contacts" class="mobile-link" onclick="showPage('contacts')" data-key="nav_contacts">Контакты</a>
     </nav>
     <div class="mobile-menu-footer">
+      <div class="mobile-theme-toggle">
+        <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark/light theme">
+          <i class="fas fa-moon" id="themeToggleIconMobile"></i>
+          <span id="themeToggleLabelMobile">Тёмная тема</span>
+        </button>
+      </div>
       <div class="mobile-lang">
         <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
         <button class="lang-btn" onclick="changeLang('kk')">KZ</button>
         <button class="lang-btn" onclick="changeLang('en')">EN</button>
       </div>
       <div class="mobile-socials">
-        <a href="https://t.me/aar10" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://t.me/assillbek" target="_blank"><i class="fab fa-telegram"></i></a>
         <a href="https://wa.me/77085739656" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/ithub.kz/" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </div>
@@ -281,12 +309,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Navigation buttons -->
-          <div class="logo-marquee-nav">
-            <button class="logo-marquee-btn prev" onclick="shiftMarquee('prev')"><i class="fas fa-chevron-left"></i></button>
-            <button class="logo-marquee-btn next" onclick="shiftMarquee('next')"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
       </div>
@@ -589,8 +611,8 @@
               <img src="assets/nodir.png" alt="Нодир Мусаматов" class="member-img">
               <div class="member-overlay">
                 <div class="member-socials">
-                  <a href="https://t.me/aar10" target="_blank"><i class="fab fa-telegram"></i></a>
-                  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://t.me/assillbek" target="_blank"><i class="fab fa-telegram"></i></a>
+                  <a href="https://www.instagram.com/ithub.kz/" target="_blank"><i class="fab fa-instagram"></i></a>
                   <a href="https://wa.me/77085739656" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
               </div>
@@ -647,9 +669,9 @@
             <div class="socials-box">
               <h3 data-key="socials_title">Наши соцсети</h3>
               <div class="socials-links">
-                <a href="https://t.me/aar10" target="_blank" class="social-link tg"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://t.me/assillbek" target="_blank" class="social-link tg"><i class="fab fa-telegram"></i> Telegram</a>
                 <a href="https://wa.me/77085739656" target="_blank" class="social-link wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://instagram.com" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.instagram.com/ithub.kz/" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i> Instagram</a>
               </div>
             </div>
 
@@ -707,9 +729,9 @@
           </div>
           <p class="footer-brand-desc" data-key="footer_brand_desc">Разработка современных технологических решений для бизнеса и подготовка высококлассных специалистов в сфере IT.</p>
           <div class="footer-socials">
-            <a href="https://t.me/aar10" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/assillbek" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://wa.me/77085739656" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/ithub.kz/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 
@@ -735,7 +757,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p data-key="footer_copyright">&copy; 2026 IT HUB. Все права защищены. | Разработано командой Alavkhanov</p>
+        <p data-key="footer_copyright">&copy; 2026 IT HUB. Все права защищены. | Разработано Alavkhanov</p>
       </div>
     </div>
   </footer>
